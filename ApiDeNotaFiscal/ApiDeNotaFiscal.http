@@ -1,0 +1,6 @@
+@ApiDeNotaFiscal_HostAddress = http://localhost:5162
+
+GET {{ApiDeNotaFiscal_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
