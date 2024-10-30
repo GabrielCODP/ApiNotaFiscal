@@ -29,7 +29,5 @@ namespace ApiDeNotaFiscal.Models
         {
             NotasFiscais = new Collection<NotaFiscal>();
         }
-
-
     }
 }
