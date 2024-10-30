@@ -18,17 +18,16 @@ namespace ApiDeNotaFiscal.Models
         public string? EnderecoDoCliente { get; set; }
 
         [Required]
-        [MinLength(14, ErrorMessage = "O CNPJ deve ter no mínimo {1} caracteres")]
-        [StringLength(14, ErrorMessage = "O CNPJ deve ter {1} caracteres")]
+        [StringLength(14, MinimumLength = 14, ErrorMessage = "O CNPJ deve ter {1} caracteres")]
         public string? CNPJCliente { get; set; }
 
         public DateTime DataCadastro { get; set; }
 
-        public ICollection<NotaFiscal> NotaFiscals { get; set; }
+        public ICollection<NotaFiscal> NotasFiscais { get; set; }
 
         public Cliente()
         {
-            NotaFiscals = new Collection<NotaFiscal>();
+            NotasFiscais = new Collection<NotaFiscal>();
         }
 
 

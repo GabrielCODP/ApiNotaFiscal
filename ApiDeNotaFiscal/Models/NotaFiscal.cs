@@ -17,7 +17,6 @@ namespace ApiDeNotaFiscal.Models
         [Column(TypeName = "decimal(10,2)")]
         public decimal ValorTotal { get; set; }
         public DateTime DataNF { get; set; }
-
         public int EmpresaId { get; set; }
 
         [JsonIgnore]

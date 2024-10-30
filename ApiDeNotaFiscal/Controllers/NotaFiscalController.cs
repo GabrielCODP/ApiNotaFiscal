@@ -22,7 +22,7 @@ namespace ApiDeNotaFiscal.Controllers
             return await _context.NotasFiscais.AsNoTracking().ToListAsync();
         }
 
-        [HttpGet("{id:int}", Name = "ObterNotaFiscal")]
+        [HttpGet("{id:int:min(1)}", Name = "ObterNotaFiscal")]
         public async Task<ActionResult<NotaFiscal>> GetNotaFiscal(int id)
         {
             var notaFiscal = await _context.NotasFiscais.FindAsync(id);

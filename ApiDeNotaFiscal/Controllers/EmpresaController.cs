@@ -23,7 +23,7 @@ namespace ApiDeNotaFiscal.Controllers
             return await _context.Empresas.AsNoTracking().ToListAsync();
         }
 
-        [HttpGet("{id:int}", Name = "ObterEmpresa")]
+        [HttpGet("{id:int:min(1)}", Name = "ObterEmpresa")]
         public async Task<ActionResult<Empresa>> GetEmpresa(int id)
         {
             //Faz uma consulta primeira em cache
@@ -62,7 +62,7 @@ namespace ApiDeNotaFiscal.Controllers
             return new CreatedAtRouteResult("ObterEmpresa", new { id = empresa.EmpresaId }, empresa);
         }
 
-        [HttpPut("{id:int}")]
+        [HttpPut("{id:int:min(1)}")]
         public async Task<IActionResult> PutEmpresa(int id, Empresa empresa)
         {
             if (id != empresa.EmpresaId)
@@ -91,7 +91,7 @@ namespace ApiDeNotaFiscal.Controllers
 
         }
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("{id:int:min(1)}")]
         public async Task<IActionResult> DeleteEmpresa(int id)
         {
             var empresa = await _context.Empresas.FindAsync(id);

@@ -18,13 +18,11 @@ namespace ApiDeNotaFiscal.Models
         public string? RazaoSocial { get; set; }
 
         [Required]
-        [MinLength(14, ErrorMessage = "O CNPJ deve ter no mínimo {1} caracteres")]
-        [StringLength(14, ErrorMessage = "O CNPJ deve ter {1} caracteres")]
+        [StringLength(14, MinimumLength = 14, ErrorMessage = "O CNPJ deve ter {1} caracteres")]
         public string? CnpjEmissor { get; set; }
 
         [Required]
-        [MinLength(9, ErrorMessage = "A inscricao estatual deve ter no mínimo {1} caracteres")]
-        [StringLength(9, ErrorMessage = "A inscricao estatual deve ter {1} caracteres")]
+        [StringLength(9, MinimumLength = 9, ErrorMessage = "A inscricao estatual deve ter {1} caracteres")]
         public string? InscricaoEstadual { get; set; }
 
         public DateTime DataCadastro { get; set; }

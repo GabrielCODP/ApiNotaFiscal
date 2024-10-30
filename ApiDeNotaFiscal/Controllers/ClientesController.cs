@@ -40,6 +40,12 @@ namespace ApiDeNotaFiscal.Controllers
             return cliente;
         }
 
+        [HttpGet("NotasFiscais")]
+        public async Task<ActionResult<IEnumerable<Cliente>>> GetAllNotasFiscaisDaEmpresa()
+        {
+            return await _context.Clientes.Include(n => n.NotasFiscais).ToListAsync();
+        }
+
         [HttpPost]
         public async Task<ActionResult<Cliente>> PostCliente(Cliente cliente)
         {
@@ -56,7 +62,7 @@ namespace ApiDeNotaFiscal.Controllers
             return new CreatedAtRouteResult("ObterCliente", new { id = cliente.ClienteId }, cliente);
         }
 
-        [HttpPut("{id:int}")]
+        [HttpPut("{id:int:min(1)}")]
         public async Task<IActionResult> PutCliente(int id, Cliente cliente)
         {
             if (id != cliente.ClienteId)
@@ -72,7 +78,7 @@ namespace ApiDeNotaFiscal.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ClienteExists(id))
+                if (!ClienteExiste(id))
                 {
                     return NotFound();
                 }
@@ -85,7 +91,7 @@ namespace ApiDeNotaFiscal.Controllers
 
         }
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("{id:int:min(1)}")]
         public async Task<IActionResult> DeleteCliente(int id)
         {
             var cliente = await _context.Clientes.FindAsync(id);
@@ -100,7 +106,7 @@ namespace ApiDeNotaFiscal.Controllers
             return NoContent();
         }
 
-        private bool ClienteExists(int id)
+        private bool ClienteExiste(int id)
         {
             return _context.Clientes.Any(e => e.ClienteId == id);
         }
