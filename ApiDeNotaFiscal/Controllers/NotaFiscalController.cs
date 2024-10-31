@@ -1,4 +1,5 @@
 ﻿using ApiDeNotaFiscal.Context;
+using ApiDeNotaFiscal.Filters;
 using ApiDeNotaFiscal.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,12 +18,14 @@ namespace ApiDeNotaFiscal.Controllers
         }
 
         [HttpGet]
+        [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<ActionResult<IEnumerable<NotaFiscal>>> GetAllNotasFiscais()
         {
             return await _context.NotasFiscais.AsNoTracking().ToListAsync();
         }
 
         [HttpGet("{id:int:min(1)}", Name = "ObterNotaFiscal")]
+        [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<ActionResult<NotaFiscal>> GetNotaFiscal(int id)
         {
             var notaFiscal = await _context.NotasFiscais.FindAsync(id);
@@ -36,6 +39,7 @@ namespace ApiDeNotaFiscal.Controllers
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<ActionResult<NotaFiscal>> PostNotaFiscal(NotaFiscal notaFiscal)
         {
             if (notaFiscal is null)
@@ -50,6 +54,7 @@ namespace ApiDeNotaFiscal.Controllers
         }
 
         [HttpPut]
+        [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<ActionResult> PutNotaFiscal(int id, NotaFiscal notaFiscal)
         {
             if (id != notaFiscal.NotaFiscalId)
@@ -80,6 +85,7 @@ namespace ApiDeNotaFiscal.Controllers
         }
 
         [HttpDelete]
+        [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<ActionResult> DeleteNotaFiscal(int id)
         {
             var notaFiscal = await _context.NotasFiscais.FindAsync(id);

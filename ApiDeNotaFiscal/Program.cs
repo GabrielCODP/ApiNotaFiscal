@@ -1,5 +1,6 @@
 using ApiDeNotaFiscal.Context;
 using ApiDeNotaFiscal.Extensions;
+using ApiDeNotaFiscal.Filters;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,8 @@ string mySqlConnection = builder.Configuration.GetConnectionString("DefaultConne
 builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(mySqlConnection,
                 ServerVersion.AutoDetect(mySqlConnection)));
 
+builder.Services.AddScoped<ApiLoggingFilter>();
+
 
 var app = builder.Build();
 
@@ -25,8 +28,10 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.ConfigureExceptionHandler();
+    //app.ConfigureExceptionHandler();
 }
+
+app.ConfigureExceptionHandler();
 
 app.UseHttpsRedirection();
 

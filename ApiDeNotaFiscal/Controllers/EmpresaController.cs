@@ -1,4 +1,5 @@
 ﻿using ApiDeNotaFiscal.Context;
+using ApiDeNotaFiscal.Filters;
 using ApiDeNotaFiscal.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,12 +19,14 @@ namespace ApiDeNotaFiscal.Controllers
         }
 
         [HttpGet]
+        [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<ActionResult<IEnumerable<Empresa>>> GetEmpresas()
         {
             return await _context.Empresas.AsNoTracking().ToListAsync();
         }
 
         [HttpGet("{id:int:min(1)}", Name = "ObterEmpresa")]
+        [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<ActionResult<Empresa>> GetEmpresa(int id)
         {
             //Faz uma consulta primeira em cache
@@ -41,12 +44,14 @@ namespace ApiDeNotaFiscal.Controllers
         }
 
         [HttpGet("NotasFiscais")]
+        [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<ActionResult<IEnumerable<Empresa>>> GetAllNotasFiscaisDaEmpresa()
         {
             return await _context.Empresas.Include(n => n.NotasFiscais).ToListAsync();
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<ActionResult<Cliente>> PostEmpresa(Empresa empresa)
         {
             if (empresa is null)
@@ -63,6 +68,7 @@ namespace ApiDeNotaFiscal.Controllers
         }
 
         [HttpPut("{id:int:min(1)}")]
+        [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<IActionResult> PutEmpresa(int id, Empresa empresa)
         {
             if (id != empresa.EmpresaId)
@@ -92,6 +98,7 @@ namespace ApiDeNotaFiscal.Controllers
         }
 
         [HttpDelete("{id:int:min(1)}")]
+        [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<IActionResult> DeleteEmpresa(int id)
         {
             var empresa = await _context.Empresas.FindAsync(id);
