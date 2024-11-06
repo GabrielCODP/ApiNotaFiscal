@@ -16,8 +16,8 @@ namespace ApiDeNotaFiscal.Controllers
     public class ClientesController : ControllerBase
     {
         private readonly AppDbContext _context;
-
-        public ClientesController(AppDbContext context)
+   
+        public ClientesController(AppDbContext context, ILogger<ClientesController> logger)
         {
             _context = context;
         }
