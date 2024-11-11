@@ -35,7 +35,7 @@ namespace ApiDeNotaFiscal.Controllers
                 return NotFound("Nota fiscal não encontrada");
             }
 
-            return notaFiscal;
+            return Ok(notaFiscal);
         }
 
         [HttpPost]
@@ -63,23 +63,8 @@ namespace ApiDeNotaFiscal.Controllers
             }
 
             _context.Entry(notaFiscal).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (Exception)
-            {
-
-                if (!NotaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
             return Ok(notaFiscal);
 
         }
@@ -101,11 +86,5 @@ namespace ApiDeNotaFiscal.Controllers
 
             return Ok(notaFiscal);
         }
-
-        private bool NotaExists(int id)
-        {
-            return _context.NotasFiscais.Any(e => e.NotaFiscalId == id);
-        }
-
     }
 }

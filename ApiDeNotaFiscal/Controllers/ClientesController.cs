@@ -16,7 +16,7 @@ namespace ApiDeNotaFiscal.Controllers
     public class ClientesController : ControllerBase
     {
         private readonly AppDbContext _context;
-   
+
         public ClientesController(AppDbContext context, ILogger<ClientesController> logger)
         {
             _context = context;
@@ -26,6 +26,7 @@ namespace ApiDeNotaFiscal.Controllers
         [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<ActionResult<IEnumerable<Cliente>>> GetClientes()
         {
+
             return await _context.Clientes.AsNoTracking().ToListAsync();
         }
 
@@ -40,7 +41,7 @@ namespace ApiDeNotaFiscal.Controllers
                 return NotFound("Cliente não encontrado");
             }
 
-            return cliente;
+            return Ok(cliente);
         }
 
         [HttpGet("NotasFiscais")]
@@ -73,28 +74,14 @@ namespace ApiDeNotaFiscal.Controllers
         {
             if (id != cliente.ClienteId)
             {
-                return BadRequest();
+                return BadRequest("Dados inválidos");
             }
 
             _context.Entry(cliente).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ClienteExiste(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-            return NoContent();
+            await _context.SaveChangesAsync();
 
+            return Ok(cliente);
         }
 
         [HttpDelete("{id:int:min(1)}")]
@@ -110,12 +97,7 @@ namespace ApiDeNotaFiscal.Controllers
             _context.Clientes.Remove(cliente);
             await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
-
-        private bool ClienteExiste(int id)
-        {
-            return _context.Clientes.Any(e => e.ClienteId == id);
+            return Ok();
         }
     }
 }

@@ -12,7 +12,6 @@ namespace ApiDeNotaFiscal.Controllers
     public class EmpresaController : ControllerBase
     {
         private readonly AppDbContext _context;
-
         public EmpresaController(AppDbContext context)
         {
             _context = context;
@@ -40,7 +39,7 @@ namespace ApiDeNotaFiscal.Controllers
                 return NotFound("Empresa não encontrada");
             }
 
-            return empresa;
+            return Ok(empresa);
         }
 
         [HttpGet("NotasFiscais")]
@@ -77,22 +76,8 @@ namespace ApiDeNotaFiscal.Controllers
             }
 
             _context.Entry(empresa).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!EmpresaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
             return Ok(empresa);
 
         }
@@ -115,9 +100,6 @@ namespace ApiDeNotaFiscal.Controllers
             return Ok(empresa);
         }
 
-        private bool EmpresaExists(int id)
-        {
-            return _context.Empresas.Any(e => e.EmpresaId == id);
-        }
+        
     }
 }
