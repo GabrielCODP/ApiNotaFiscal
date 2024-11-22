@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ApiDeNotaFiscal.Context;
 using ApiDeNotaFiscal.Models;
 using ApiDeNotaFiscal.Filters;
+using ApiDeNotaFiscal.Repositories;
 
 namespace ApiDeNotaFiscal.Controllers
 {
@@ -15,11 +16,11 @@ namespace ApiDeNotaFiscal.Controllers
     [ApiController]
     public class ClientesController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IClienteRepository _repository;
 
-        public ClientesController(AppDbContext context, ILogger<ClientesController> logger)
+        public ClientesController(IClienteRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         [HttpGet]
@@ -27,14 +28,26 @@ namespace ApiDeNotaFiscal.Controllers
         public async Task<ActionResult<IEnumerable<Cliente>>> GetClientes()
         {
 
-            return await _context.Clientes.AsNoTracking().ToListAsync();
+            //return await _repository.Clientes.AsNoTracking().ToListAsync();
+
+            var clientes = await _repository.GetClientesAsync();
+
+            if (clientes is null) 
+            {
+                return NotFound("Clientes não encontrado...");
+            }
+
+            return Ok(clientes);
+           
         }
 
         [HttpGet("{id:int}", Name = "ObterCliente")]
         [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<ActionResult<Cliente>> GetCliente(int id)
         {
-            var cliente = await _context.Clientes.FindAsync(id);
+            //var cliente = await _repository.Clientes.FindAsync(id);
+
+            var cliente = await _repository.GetClienteAsync(id);
 
             if (cliente == null)
             {
@@ -44,12 +57,14 @@ namespace ApiDeNotaFiscal.Controllers
             return Ok(cliente);
         }
 
-        [HttpGet("NotasFiscais")]
-        [ServiceFilter(typeof(ApiLoggingFilter))]
-        public async Task<ActionResult<IEnumerable<Cliente>>> GetAllNotasFiscaisDaEmpresa()
-        {
-            return await _context.Clientes.Include(n => n.NotasFiscais).ToListAsync();
-        }
+
+        
+        //[HttpGet("NotasFiscais")]
+        //[ServiceFilter(typeof(ApiLoggingFilter))]
+        //public async Task<ActionResult<IEnumerable<Cliente>>> GetAllNotasFiscaisDoCliente()
+        //{
+        //    return await _context.Clientes.Include(n => n.NotasFiscais).ToListAsync();
+        //}
 
         [HttpPost]
         [ServiceFilter(typeof(ApiLoggingFilter))]
@@ -60,12 +75,9 @@ namespace ApiDeNotaFiscal.Controllers
                 return BadRequest();
             }
 
-            _context.Clientes.Add(cliente);
-            await _context.SaveChangesAsync();
+            var clienteCriado = await _repository.CreateAsync(cliente);
 
-            //return CreatedAtAction("GetCliente", new { id = cliente.ClienteId }, cliente);
-
-            return new CreatedAtRouteResult("ObterCliente", new { id = cliente.ClienteId }, cliente);
+            return new CreatedAtRouteResult("ObterCliente", new { id = clienteCriado.ClienteId}, clienteCriado);
         }
 
         [HttpPut("{id:int:min(1)}")]
@@ -77,9 +89,7 @@ namespace ApiDeNotaFiscal.Controllers
                 return BadRequest("Dados inválidos");
             }
 
-            _context.Entry(cliente).State = EntityState.Modified;
-
-            await _context.SaveChangesAsync();
+            await _repository.UpdateAsync(cliente);
 
             return Ok(cliente);
         }
@@ -88,16 +98,17 @@ namespace ApiDeNotaFiscal.Controllers
         [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<IActionResult> DeleteCliente(int id)
         {
-            var cliente = await _context.Clientes.FindAsync(id);
+           
+            var cliente = await _repository.GetClienteAsync(id);
+
             if (cliente == null)
             {
-                return NotFound();
+                return NotFound("Cliente não encontrado");
             }
 
-            _context.Clientes.Remove(cliente);
-            await _context.SaveChangesAsync();
+            var clienteDeletado = await _repository.DeleteAsync(cliente.ClienteId);
 
-            return Ok();
+            return Ok(clienteDeletado);
         }
     }
 }

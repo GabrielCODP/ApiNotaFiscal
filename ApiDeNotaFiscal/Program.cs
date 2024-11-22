@@ -2,6 +2,7 @@ using ApiDeNotaFiscal.Context;
 using ApiDeNotaFiscal.Extensions;
 using ApiDeNotaFiscal.Filters;
 using ApiDeNotaFiscal.Logging;
+using ApiDeNotaFiscal.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -27,6 +28,11 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(mySqlCon
                 ServerVersion.AutoDetect(mySqlConnection)));
 
 builder.Services.AddScoped<ApiLoggingFilter>();
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<IEmpresaRepository, EmpresaRepository>();
+
+
+
 builder.Logging.AddProvider(new CustomLoggerProvider(new CustomLoggerProviderConfiguration
 {
     LogLevel = LogLevel.Information
