@@ -56,8 +56,8 @@ namespace ApiDeNotaFiscal.Controllers
                 return BadRequest();
             }
 
-            var novaNotaFiscal = await _uof.NotaFiscalRepository.CreateAsync(notaFiscal);
-            _uof.CommitAsync();
+            var novaNotaFiscal = _uof.NotaFiscalRepository.Create(notaFiscal);
+            await _uof.CommitAsync();
 
             return new CreatedAtRouteResult("ObterNotaFiscal", new { id = novaNotaFiscal.NotaFiscalId }, novaNotaFiscal);
         }
@@ -66,13 +66,15 @@ namespace ApiDeNotaFiscal.Controllers
         [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<ActionResult> PutNotaFiscal(int id, NotaFiscal notaFiscal)
         {
-            if (id != notaFiscal.NotaFiscalId)
+            var notaFiscalId = await _uof.NotaFiscalRepository.GetAsync(n => n.NotaFiscalId == id);
+
+            if (id != notaFiscal.NotaFiscalId || notaFiscalId is null)
             {
                 return BadRequest();
             }
 
-            var notaFiscalUpdate = await _uof.NotaFiscalRepository.UpdateAsync(notaFiscal);
-            _uof.CommitAsync();
+            var notaFiscalUpdate = _uof.NotaFiscalRepository.Update(notaFiscal);
+            await _uof.CommitAsync();
 
             return Ok(notaFiscalUpdate);
 
@@ -89,8 +91,8 @@ namespace ApiDeNotaFiscal.Controllers
                 return NotFound("Nota fiscal não encontrada");
             }
 
-            var notaFiscalDeletada = await _uof.NotaFiscalRepository.DeleteAsync(notaFiscal);
-            _uof.CommitAsync();
+            var notaFiscalDeletada = _uof.NotaFiscalRepository.Delete(notaFiscal);
+            await _uof.CommitAsync();
 
             return Ok(notaFiscalDeletada);
         }

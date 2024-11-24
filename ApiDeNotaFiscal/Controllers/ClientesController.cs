@@ -74,8 +74,8 @@ namespace ApiDeNotaFiscal.Controllers
                 return BadRequest();
             }
 
-            var clienteCriado = await _uof.ClienteRepository.CreateAsync(cliente);
-            _uof.CommitAsync();
+            var clienteCriado = _uof.ClienteRepository.Create(cliente);
+            await _uof.CommitAsync();
 
             return new CreatedAtRouteResult("ObterCliente", new { id = clienteCriado.ClienteId }, clienteCriado);
         }
@@ -84,13 +84,16 @@ namespace ApiDeNotaFiscal.Controllers
         //[ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<IActionResult> PutCliente(int id, Cliente cliente)
         {
-            if (id != cliente.ClienteId)
+
+            var clienteId = await _uof.ClienteRepository.GetAsync(c => c.ClienteId == id);
+
+            if (id != cliente.ClienteId || clienteId == null)
             {
                 return BadRequest("Dados inválidos");
             }
 
-            await _uof.ClienteRepository.UpdateAsync(cliente);
-            _uof.CommitAsync();
+            _uof.ClienteRepository.Update(cliente);
+            await _uof.CommitAsync();
 
             return Ok(cliente);
         }
@@ -107,8 +110,8 @@ namespace ApiDeNotaFiscal.Controllers
                 return NotFound("Cliente não encontrado");
             }
 
-            var clienteDeletado = await _uof.ClienteRepository.DeleteAsync(cliente);
-            _uof.CommitAsync();
+            var clienteDeletado = _uof.ClienteRepository.Delete(cliente);
+            await _uof.CommitAsync();
 
             return Ok(clienteDeletado);
         }

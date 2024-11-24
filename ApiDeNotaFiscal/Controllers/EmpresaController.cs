@@ -72,7 +72,7 @@ namespace ApiDeNotaFiscal.Controllers
                 return BadRequest();
             }
 
-            var empresaCriada = await _uof.EmpresaRepository.CreateAsync(empresa);
+            var empresaCriada = _uof.EmpresaRepository.Create(empresa);
             _uof.CommitAsync();
 
             return new CreatedAtRouteResult("ObterEmpresa", new { id = empresaCriada.EmpresaId }, empresaCriada);
@@ -82,12 +82,14 @@ namespace ApiDeNotaFiscal.Controllers
         [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<IActionResult> PutEmpresa(int id, Empresa empresa)
         {
-            if (id != empresa.EmpresaId)
+            var empresaId = await _uof.EmpresaRepository.GetAsync(e => e.EmpresaId == id);
+
+            if (id != empresa.EmpresaId || empresaId is null)
             {
                 return BadRequest();
             }
 
-            var empresaUpdate = await _uof.EmpresaRepository.UpdateAsync(empresa);
+            var empresaUpdate = _uof.EmpresaRepository.Update(empresa);
             _uof.CommitAsync();
 
             return Ok(empresaUpdate);
@@ -105,7 +107,7 @@ namespace ApiDeNotaFiscal.Controllers
                 return NotFound("Empresa não localizada");
             }
 
-            var empresaDeletada = await _uof.EmpresaRepository.DeleteAsync(empresa);
+            var empresaDeletada = _uof.EmpresaRepository.Delete(empresa);
 
             _uof.CommitAsync();
 
