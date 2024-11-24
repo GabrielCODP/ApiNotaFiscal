@@ -3,6 +3,7 @@ using ApiDeNotaFiscal.Extensions;
 using ApiDeNotaFiscal.Filters;
 using ApiDeNotaFiscal.Logging;
 using ApiDeNotaFiscal.Repositories;
+using ApiDeNotaFiscal.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -30,6 +31,8 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(mySqlCon
 builder.Services.AddScoped<ApiLoggingFilter>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IEmpresaRepository, EmpresaRepository>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
 

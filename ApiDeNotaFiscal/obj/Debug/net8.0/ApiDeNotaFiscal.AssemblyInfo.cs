@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiDeNotaFiscal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+67a25fc8505be4e055b10b6f382e40154a83b018")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a53c09e7b00f4035de0794e127cf9a76d755db5")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiDeNotaFiscal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiDeNotaFiscal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

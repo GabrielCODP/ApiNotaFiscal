@@ -1,60 +1,19 @@
 ﻿using ApiDeNotaFiscal.Context;
 using ApiDeNotaFiscal.Models;
+using ApiDeNotaFiscal.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiDeNotaFiscal.Repositories
 {
-    public class EmpresaRepository : IEmpresaRepository
+    public class EmpresaRepository : Repository<Empresa>, IEmpresaRepository
     {
-
-        private readonly AppDbContext _context;
-
-        public EmpresaRepository(AppDbContext context)
+        public EmpresaRepository(AppDbContext context) : base(context)
         {
-            _context = context;
         }
 
-        public async Task<IEnumerable<Empresa>> GetEmpresasAsync()
+        public async Task<IEnumerable<Empresa>> GetAllNotasFiscaisDaEmpresa()
         {
-            var empresas = await _context.Empresas.ToListAsync();
-
-            return empresas;
+            return await _context.Set<Empresa>().AsNoTracking().Include(n => n.NotasFiscais).ToListAsync();
         }
-
-        public async Task<Empresa> GetEmpresaAsync(int id)
-        {
-            var empresa = await _context.Empresas.FindAsync(id);
-            return empresa;
-        }
-
-        public async Task<Empresa> CreateAsync(Empresa empresa)
-        {
-
-            _context.Empresas.Add(empresa);
-            await _context.SaveChangesAsync();
-
-            return empresa;
-        }
-
-        public async Task<Empresa> UpdateAsync(Empresa empresa)
-        {
-
-            _context.Entry(empresa).State = EntityState.Modified;
-
-            await _context.SaveChangesAsync();
-
-            return empresa;
-        }
-
-        public async Task<Empresa> DeleteAsync(int id)
-        {
-            var empresa = await _context.Empresas.FindAsync(id);
-
-            _context.Empresas.Remove(empresa);
-            await _context.SaveChangesAsync();
-
-            return empresa;
-        }
-
     }
 }

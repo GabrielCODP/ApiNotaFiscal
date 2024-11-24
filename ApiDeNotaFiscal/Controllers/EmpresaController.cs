@@ -1,7 +1,7 @@
 ﻿using ApiDeNotaFiscal.Context;
 using ApiDeNotaFiscal.Filters;
 using ApiDeNotaFiscal.Models;
-using ApiDeNotaFiscal.Repositories;
+using ApiDeNotaFiscal.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,10 +12,11 @@ namespace ApiDeNotaFiscal.Controllers
     [ApiController]
     public class EmpresaController : ControllerBase
     {
-        private readonly IEmpresaRepository _repository;
-        public EmpresaController(IEmpresaRepository repository)
+        private readonly IUnitOfWork _uof;
+
+        public EmpresaController(IUnitOfWork uof)
         {
-            _repository = repository;
+            _uof = uof;
         }
 
         [HttpGet]
@@ -23,8 +24,9 @@ namespace ApiDeNotaFiscal.Controllers
         public async Task<ActionResult<IEnumerable<Empresa>>> GetEmpresas()
         {
 
-            var empresas = await _repository.GetEmpresasAsync();
-            if (empresas is null) 
+            var empresas = await _uof.EmpresaRepository.GetAllAsync();
+
+            if (empresas is null)
             {
                 return NotFound("Empresas não encontrada...");
             }
@@ -36,7 +38,7 @@ namespace ApiDeNotaFiscal.Controllers
         [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<ActionResult<Empresa>> GetEmpresa(int id)
         {
-            var empresa = await _repository.GetEmpresaAsync(id);
+            var empresa = await _uof.EmpresaRepository.GetAsync(e => e.EmpresaId == id);
 
             if (empresa == null)
             {
@@ -47,14 +49,19 @@ namespace ApiDeNotaFiscal.Controllers
         }
 
 
-        
+        [HttpGet("NotasFiscais")]
+        [ServiceFilter(typeof(ApiLoggingFilter))]
+        public async Task<ActionResult<IEnumerable<Empresa>>> GetAllNotasFiscaisDaEmpresa()
+        {
+            var notasFiscaisEmpresa = await _uof.EmpresaRepository.GetAllNotasFiscaisDaEmpresa();
 
-        //[HttpGet("NotasFiscais")]
-        //[ServiceFilter(typeof(ApiLoggingFilter))]
-        //public async Task<ActionResult<IEnumerable<Empresa>>> GetAllNotasFiscaisDaEmpresa()
-        //{
-        //    return await _context.Empresas.Include(n => n.NotasFiscais).ToListAsync();
-        //}
+            if (notasFiscaisEmpresa is null)
+            {
+                return NotFound("Notas fiscais não encontrada");
+            }
+
+            return Ok(notasFiscaisEmpresa);
+        }
 
         [HttpPost]
         [ServiceFilter(typeof(ApiLoggingFilter))]
@@ -65,12 +72,8 @@ namespace ApiDeNotaFiscal.Controllers
                 return BadRequest();
             }
 
-            //_context.Empresas.Add(empresa);
-            //await _context.SaveChangesAsync();
-
-            var empresaCriada = await _repository.CreateAsync(empresa);
-
-            //return CreatedAtAction("GetEmpresa", new { id = empresa.EmpresaId },empresa);
+            var empresaCriada = await _uof.EmpresaRepository.CreateAsync(empresa);
+            _uof.CommitAsync();
 
             return new CreatedAtRouteResult("ObterEmpresa", new { id = empresaCriada.EmpresaId }, empresaCriada);
         }
@@ -84,7 +87,8 @@ namespace ApiDeNotaFiscal.Controllers
                 return BadRequest();
             }
 
-            var empresaUpdate = await _repository.UpdateAsync(empresa);
+            var empresaUpdate = await _uof.EmpresaRepository.UpdateAsync(empresa);
+            _uof.CommitAsync();
 
             return Ok(empresaUpdate);
 
@@ -94,14 +98,16 @@ namespace ApiDeNotaFiscal.Controllers
         [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<IActionResult> DeleteEmpresa(int id)
         {
-            var empresa = await _repository.GetEmpresaAsync(id);
+            var empresa = await _uof.EmpresaRepository.GetAsync(e => e.EmpresaId == id);
 
             if (empresa is null)
             {
                 return NotFound("Empresa não localizada");
             }
 
-            var empresaDeletada = await _repository.DeleteAsync(id);
+            var empresaDeletada = await _uof.EmpresaRepository.DeleteAsync(empresa);
+
+            _uof.CommitAsync();
 
             return Ok(empresaDeletada);
         }
