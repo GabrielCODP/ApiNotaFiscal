@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "STvjLpA5fLU=",
+  "dgSpecHash": "L9o2K9QzrhE=",
   "success": true,
   "projectFilePath": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Gabriel\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Gabriel\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Gabriel\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Gabriel\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

@@ -1,4 +1,5 @@
 using ApiDeNotaFiscal.Context;
+using ApiDeNotaFiscal.DTOs.MappingDTO;
 using ApiDeNotaFiscal.Extensions;
 using ApiDeNotaFiscal.Filters;
 using ApiDeNotaFiscal.Logging;
@@ -39,7 +40,7 @@ builder.Logging.AddProvider(new CustomLoggerProvider(new CustomLoggerProviderCon
     LogLevel = LogLevel.Information
 }));
 
-
+builder.Services.AddAutoMapper(typeof(DadosDTOMappingProfile));
 
 var app = builder.Build();
 
