@@ -1,7 +1,9 @@
 ﻿using ApiDeNotaFiscal.Context;
+using ApiDeNotaFiscal.DTOs.EmpresaDTO;
 using ApiDeNotaFiscal.Filters;
 using ApiDeNotaFiscal.Models;
 using ApiDeNotaFiscal.Repositories.Interfaces;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,17 +15,18 @@ namespace ApiDeNotaFiscal.Controllers
     public class EmpresaController : ControllerBase
     {
         private readonly IUnitOfWork _uof;
+        private readonly IMapper _mapper;
 
-        public EmpresaController(IUnitOfWork uof)
+        public EmpresaController(IUnitOfWork uof, IMapper mapper)
         {
             _uof = uof;
+            _mapper = mapper;
         }
 
         [HttpGet]
         [ServiceFilter(typeof(ApiLoggingFilter))]
-        public async Task<ActionResult<IEnumerable<Empresa>>> GetEmpresas()
+        public async Task<ActionResult<IEnumerable<EmpresaResponseDTO>>> GetEmpresas()
         {
-
             var empresas = await _uof.EmpresaRepository.GetAllAsync();
 
             if (empresas is null)
@@ -31,12 +34,14 @@ namespace ApiDeNotaFiscal.Controllers
                 return NotFound("Empresas não encontrada...");
             }
 
-            return Ok(empresas);
+            var empresasDTO = _mapper.Map<IEnumerable<EmpresaResponseDTO>>(empresas);
+
+            return Ok(empresasDTO);
         }
 
         [HttpGet("{id:int:min(1)}", Name = "ObterEmpresa")]
         [ServiceFilter(typeof(ApiLoggingFilter))]
-        public async Task<ActionResult<Empresa>> GetEmpresa(int id)
+        public async Task<ActionResult<EmpresaResponseDTO>> GetEmpresa(int id)
         {
             var empresa = await _uof.EmpresaRepository.GetAsync(e => e.EmpresaId == id);
 
@@ -45,13 +50,15 @@ namespace ApiDeNotaFiscal.Controllers
                 return NotFound("Empresa não encontrada");
             }
 
-            return Ok(empresa);
+            var empresaDto = _mapper.Map<EmpresaResponseDTO>(empresa);
+
+            return Ok(empresaDto);
         }
 
 
         [HttpGet("NotasFiscais")]
         [ServiceFilter(typeof(ApiLoggingFilter))]
-        public async Task<ActionResult<IEnumerable<Empresa>>> GetAllNotasFiscaisDaEmpresa()
+        public async Task<ActionResult<IEnumerable<EmpresaResponseNotaFiscalDto>>> GetAllNotasFiscaisDaEmpresa()
         {
             var notasFiscaisEmpresa = await _uof.EmpresaRepository.GetAllNotasFiscaisDaEmpresa();
 
@@ -60,45 +67,56 @@ namespace ApiDeNotaFiscal.Controllers
                 return NotFound("Notas fiscais não encontrada");
             }
 
-            return Ok(notasFiscaisEmpresa);
+            var notasFiscaisDTO = _mapper.Map<IEnumerable<EmpresaResponseNotaFiscalDto>>(notasFiscaisEmpresa);
+
+            return Ok(notasFiscaisDTO);
         }
 
         [HttpPost]
         [ServiceFilter(typeof(ApiLoggingFilter))]
-        public async Task<ActionResult<Cliente>> PostEmpresa(Empresa empresa)
+        public async Task<ActionResult<EmpresaResponseDTO>> PostEmpresa(EmpresaCreateDTO empresaCreateDto)
         {
-            if (empresa is null)
+            if (empresaCreateDto is null)
             {
                 return BadRequest();
             }
 
-            var empresaCriada = _uof.EmpresaRepository.Create(empresa);
-            _uof.CommitAsync();
+            var empresa = _mapper.Map<Empresa>(empresaCreateDto);
 
-            return new CreatedAtRouteResult("ObterEmpresa", new { id = empresaCriada.EmpresaId }, empresaCriada);
+            var empresaCriada = _uof.EmpresaRepository.Create(empresa);
+            await _uof.CommitAsync();
+
+            var empresaDto = _mapper.Map<EmpresaResponseDTO>(empresaCriada);
+
+            return new CreatedAtRouteResult("ObterEmpresa", new { id = empresaDto.EmpresaId }, empresaDto);
         }
 
         [HttpPut("{id:int:min(1)}")]
         [ServiceFilter(typeof(ApiLoggingFilter))]
-        public async Task<IActionResult> PutEmpresa(int id, Empresa empresa)
+        public async Task<IActionResult> PutEmpresa(int id, EmpresaUpdateRequestDTO empresaDTO)
         {
             var empresaId = await _uof.EmpresaRepository.GetAsync(e => e.EmpresaId == id);
 
-            if (id != empresa.EmpresaId || empresaId is null)
+            if (id != empresaDTO.EmpresaId || empresaId is null)
             {
                 return BadRequest();
             }
 
-            var empresaUpdate = _uof.EmpresaRepository.Update(empresa);
-            _uof.CommitAsync();
 
-            return Ok(empresaUpdate);
+            var empresa = _mapper.Map<Empresa>(empresaDTO);
+
+            var empresaAtualizada = _uof.EmpresaRepository.Update(empresa);
+            await _uof.CommitAsync();
+
+            var empresaNewDTO = _mapper.Map<EmpresaUpdateRequestDTO>(empresaAtualizada);
+
+            return Ok(empresaNewDTO);
 
         }
 
         [HttpDelete("{id:int:min(1)}")]
         [ServiceFilter(typeof(ApiLoggingFilter))]
-        public async Task<IActionResult> DeleteEmpresa(int id)
+        public async Task<ActionResult<EmpresaResponseDTO>> DeleteEmpresa(int id)
         {
             var empresa = await _uof.EmpresaRepository.GetAsync(e => e.EmpresaId == id);
 
@@ -108,10 +126,11 @@ namespace ApiDeNotaFiscal.Controllers
             }
 
             var empresaDeletada = _uof.EmpresaRepository.Delete(empresa);
+            await _uof.CommitAsync();
 
-            _uof.CommitAsync();
+            var empresaDTO = _mapper.Map<EmpresaResponseDTO>(empresaDeletada);
 
-            return Ok(empresaDeletada);
+            return Ok(empresaDTO);
         }
     }
 }

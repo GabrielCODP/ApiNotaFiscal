@@ -1,14 +1,10 @@
-﻿using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace ApiDeNotaFiscal.Models
+namespace ApiDeNotaFiscal.DTOs.EmpresaDTO
 {
-    public class Empresa
+    public class EmpresaCreateDTO
     {
-        [Key]
-        public int EmpresaId { get; set; }
-
         [Required(ErrorMessage = "O nome da empresa é obrigatório")]
         [StringLength(80, ErrorMessage = "O nome da empresa deve ter no máximo {1} caracteres")]
         public string? NomeDaEmpresa { get; set; }
@@ -25,18 +21,8 @@ namespace ApiDeNotaFiscal.Models
         [StringLength(9, MinimumLength = 9, ErrorMessage = "A inscricao estatual deve ter {1} caracteres")]
         public string? InscricaoEstadual { get; set; }
 
-        public DateTime DataCadastro { get; set; }
 
-        public ICollection<NotaFiscal> NotasFiscais { get; set; }
-
-        public Empresa()
-        {
-            NotasFiscais = new Collection<NotaFiscal>();
-        }
-
-
-
-
-
+        [JsonIgnore]
+        public DateTime DataCadastro { get; private set; } = DateTime.Now;
     }
 }

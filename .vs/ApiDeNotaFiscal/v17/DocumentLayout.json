@@ -5,6 +5,38 @@
     {
       "AbsoluteMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|d:\\documentos\\codigos_programas\\desafiostreinos\\apidenotafiscal\\apidenotafiscal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|solutionrelative:apidenotafiscal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|d:\\documentos\\codigos_programas\\desafiostreinos\\apidenotafiscal\\apidenotafiscal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|solutionrelative:apidenotafiscal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|d:\\documentos\\codigos_programas\\desafiostreinos\\apidenotafiscal\\apidenotafiscal\\controllers\\notafiscalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|solutionrelative:apidenotafiscal\\controllers\\notafiscalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|d:\\documentos\\codigos_programas\\desafiostreinos\\apidenotafiscal\\apidenotafiscal\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|solutionrelative:apidenotafiscal\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|d:\\documentos\\codigos_programas\\desafiostreinos\\apidenotafiscal\\apidenotafiscal\\controllers\\empresacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|solutionrelative:apidenotafiscal\\controllers\\empresacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|d:\\documentos\\codigos_programas\\desafiostreinos\\apidenotafiscal\\apidenotafiscal\\dtos\\empresadto\\empresaresponsenotafiscaldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|solutionrelative:apidenotafiscal\\dtos\\empresadto\\empresaresponsenotafiscaldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|d:\\documentos\\codigos_programas\\desafiostreinos\\apidenotafiscal\\apidenotafiscal\\dtos\\clientedtos\\clienteresponsenotafiscaldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|solutionrelative:apidenotafiscal\\dtos\\clientedtos\\clienteresponsenotafiscaldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|d:\\documentos\\codigos_programas\\desafiostreinos\\apidenotafiscal\\apidenotafiscal\\dtos\\clientedtos\\clienteresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|solutionrelative:apidenotafiscal\\dtos\\clientedtos\\clienteresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|d:\\documentos\\codigos_programas\\desafiostreinos\\apidenotafiscal\\apidenotafiscal\\dtos\\clientedtos\\clientecreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|solutionrelative:apidenotafiscal\\dtos\\clientedtos\\clientecreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -24,9 +56,134 @@
               "RelativeDocumentMoniker": "ApiDeNotaFiscal\\appsettings.json",
               "ToolTip": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\appsettings.json",
               "RelativeToolTip": "ApiDeNotaFiscal\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAABbAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAABZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-26T23:48:28.279Z",
+              "WhenOpened": "2024-11-28T02:31:23.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EmpresaController.cs",
+              "DocumentMoniker": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\Controllers\\EmpresaController.cs",
+              "RelativeDocumentMoniker": "ApiDeNotaFiscal\\Controllers\\EmpresaController.cs",
+              "ToolTip": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\Controllers\\EmpresaController.cs",
+              "RelativeToolTip": "ApiDeNotaFiscal\\Controllers\\EmpresaController.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAlwEMAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T01:49:41.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NotaFiscalController.cs",
+              "DocumentMoniker": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\Controllers\\NotaFiscalController.cs",
+              "RelativeDocumentMoniker": "ApiDeNotaFiscal\\Controllers\\NotaFiscalController.cs",
+              "ToolTip": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\Controllers\\NotaFiscalController.cs",
+              "RelativeToolTip": "ApiDeNotaFiscal\\Controllers\\NotaFiscalController.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAvwCUAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T01:49:41.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EmpresaResponseNotaFiscalDto.cs",
+              "DocumentMoniker": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\DTOs\\EmpresaDTO\\EmpresaResponseNotaFiscalDto.cs",
+              "RelativeDocumentMoniker": "ApiDeNotaFiscal\\DTOs\\EmpresaDTO\\EmpresaResponseNotaFiscalDto.cs",
+              "ToolTip": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\DTOs\\EmpresaDTO\\EmpresaResponseNotaFiscalDto.cs",
+              "RelativeToolTip": "ApiDeNotaFiscal\\DTOs\\EmpresaDTO\\EmpresaResponseNotaFiscalDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T01:55:20.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ClienteResponseNotaFiscalDTO.cs",
+              "DocumentMoniker": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\DTOs\\ClienteDTOs\\ClienteResponseNotaFiscalDTO.cs",
+              "RelativeDocumentMoniker": "ApiDeNotaFiscal\\DTOs\\ClienteDTOs\\ClienteResponseNotaFiscalDTO.cs",
+              "ToolTip": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\DTOs\\ClienteDTOs\\ClienteResponseNotaFiscalDTO.cs",
+              "RelativeToolTip": "ApiDeNotaFiscal\\DTOs\\ClienteDTOs\\ClienteResponseNotaFiscalDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T01:54:22.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ClienteCreateDTO.cs",
+              "DocumentMoniker": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\DTOs\\ClienteDTOs\\ClienteCreateDTO.cs",
+              "RelativeDocumentMoniker": "ApiDeNotaFiscal\\DTOs\\ClienteDTOs\\ClienteCreateDTO.cs",
+              "ToolTip": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\DTOs\\ClienteDTOs\\ClienteCreateDTO.cs",
+              "RelativeToolTip": "ApiDeNotaFiscal\\DTOs\\ClienteDTOs\\ClienteCreateDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T01:53:52.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\Program.cs",
+              "RelativeDocumentMoniker": "ApiDeNotaFiscal\\Program.cs",
+              "ToolTip": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\Program.cs",
+              "RelativeToolTip": "ApiDeNotaFiscal\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAABTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T01:51:58.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ClienteResponseDTO.cs",
+              "DocumentMoniker": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\DTOs\\ClienteDTOs\\ClienteResponseDTO.cs",
+              "RelativeDocumentMoniker": "ApiDeNotaFiscal\\DTOs\\ClienteDTOs\\ClienteResponseDTO.cs",
+              "ToolTip": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\DTOs\\ClienteDTOs\\ClienteResponseDTO.cs",
+              "RelativeToolTip": "ApiDeNotaFiscal\\DTOs\\ClienteDTOs\\ClienteResponseDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T01:49:37.304Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "0698ff64-ee03-4c52-96b7-c0e27529f73d",
+        "Display": 0,
+        "X": 653,
+        "Y": 137,
+        "Width": 919,
+        "Height": 852,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClientesController.cs",
+              "DocumentMoniker": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\Controllers\\ClientesController.cs",
+              "RelativeDocumentMoniker": "ApiDeNotaFiscal\\Controllers\\ClientesController.cs",
+              "ToolTip": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\Controllers\\ClientesController.cs",
+              "RelativeToolTip": "ApiDeNotaFiscal\\Controllers\\ClientesController.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAxwEUAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T01:34:10.056Z",
               "EditorCaption": ""
             }
           ]

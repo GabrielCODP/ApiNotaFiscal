@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace ApiDeNotaFiscal.DTOs.ClienteDTOs
 {
@@ -16,7 +17,7 @@ namespace ApiDeNotaFiscal.DTOs.ClienteDTOs
         [StringLength(14, MinimumLength = 14, ErrorMessage = "O CNPJ deve ter {1} caracteres")]
         public string? CNPJCliente { get; set; }
 
-        [Required]
-        public DateTime DataCadastro { get; set; }
+        [JsonIgnore]
+        public DateTime DataCadastro { get;private set; } = DateTime.Now;
     }
 }

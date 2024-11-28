@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
 
-namespace ApiDeNotaFiscal.Models
+namespace ApiDeNotaFiscal.DTOs.NotaFiscalDTO
 {
-    public class NotaFiscal
+    public class NotaFiscalUpdateDTO : IValidatableObject
     {
+
         [Key]
         public int NotaFiscalId { get; set; }
 
@@ -13,15 +12,23 @@ namespace ApiDeNotaFiscal.Models
         [StringLength(100, ErrorMessage = "O número da NF deve ter no máximo {1} caracteres")]
         public string? NumeroNF { get; set; }
         [Required]
-        [Column(TypeName = "decimal(10,2)")]
         public decimal ValorTotal { get; set; }
         public DateTime DataNF { get; set; }
+        [Required]
         public int EmpresaId { get; set; }
-        [JsonIgnore]
-        public Empresa? Empresa { get; set; }
+        [Required]
         public int ClienteId { get; set; }
-        [JsonIgnore]
-        public Cliente? Cliente { get; set; }
 
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (DataNF.Date <= DateTime.Now.Date)
+            {
+                yield return new ValidationResult("A data deve ser maior que a data atual",
+                  new[] { nameof(this.DataNF) });
+            }
+        }
     }
+
+
 }

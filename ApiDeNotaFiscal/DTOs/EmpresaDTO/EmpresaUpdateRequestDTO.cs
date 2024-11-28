@@ -1,10 +1,8 @@
-﻿using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace ApiDeNotaFiscal.Models
+namespace ApiDeNotaFiscal.DTOs.EmpresaDTO
 {
-    public class Empresa
+    public class EmpresaUpdateRequestDTO : IValidatableObject
     {
         [Key]
         public int EmpresaId { get; set; }
@@ -27,16 +25,14 @@ namespace ApiDeNotaFiscal.Models
 
         public DateTime DataCadastro { get; set; }
 
-        public ICollection<NotaFiscal> NotasFiscais { get; set; }
-
-        public Empresa()
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            NotasFiscais = new Collection<NotaFiscal>();
+            if (DataCadastro.Date <= DateTime.Now.Date)
+            {
+                yield return new ValidationResult("A data deve ser maior que a data atual",
+                  new[] { nameof(this.DataCadastro) });
+            }
         }
-
-
-
-
 
     }
 }

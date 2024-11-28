@@ -2,7 +2,7 @@
 
 namespace ApiDeNotaFiscal.DTOs.ClienteDTOs
 {
-    public class ClienteDTO
+    public class ClienteUpdateRequestDTO : IValidatableObject
     {
         [Key]
         public int ClienteId { get; set; }
@@ -21,5 +21,14 @@ namespace ApiDeNotaFiscal.DTOs.ClienteDTOs
 
         [Required]
         public DateTime DataCadastro { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (DataCadastro.Date <= DateTime.Now.Date)
+            {
+                yield return new ValidationResult("A data deve ser maior que a data atual",
+                  new[] { nameof(this.DataCadastro) });
+            }
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace ApiDeNotaFiscal.Controllers
 
         [HttpGet]
         [ServiceFilter(typeof(ApiLoggingFilter))]
-        public async Task<ActionResult<IEnumerable<ClienteDTO>>> GetClientes()
+        public async Task<ActionResult<IEnumerable<ClienteResponseDTO>>> GetClientes()
         {
             var clientes = await _uof.ClienteRepository.GetAllAsync();
 
@@ -31,7 +31,7 @@ namespace ApiDeNotaFiscal.Controllers
                 return NotFound("Clientes não encontrado...");
             }
 
-            var clienteDto = _mapper.Map<IEnumerable<ClienteDTO>>(clientes);
+            var clienteDto = _mapper.Map<IEnumerable<ClienteResponseDTO>>(clientes);
 
 
             return Ok(clienteDto);
@@ -39,7 +39,7 @@ namespace ApiDeNotaFiscal.Controllers
 
         [HttpGet("{id:int}", Name = "ObterCliente")]
         [ServiceFilter(typeof(ApiLoggingFilter))]
-        public async Task<ActionResult<ClienteDTO>> GetCliente(int id)
+        public async Task<ActionResult<ClienteResponseDTO>> GetCliente(int id)
         {
             var cliente = await _uof.ClienteRepository.GetAsync(c => c.ClienteId == id);
 
@@ -48,14 +48,14 @@ namespace ApiDeNotaFiscal.Controllers
                 return NotFound("Cliente não encontrado");
             }
 
-            var clienteDTO = _mapper.Map<ClienteDTO>(cliente);
+            var clienteDTO = _mapper.Map<ClienteResponseDTO>(cliente);
 
             return Ok(clienteDTO);
         }
 
         [HttpGet("NotasFiscais")]
         [ServiceFilter(typeof(ApiLoggingFilter))]
-        public async Task<ActionResult<IEnumerable<Cliente>>> GetAllNotasFiscaisDoCliente()
+        public async Task<ActionResult<IEnumerable<ClienteResponseNotaFiscalDTO>>> GetAllNotasFiscaisDoCliente()
         {
             var notasFiscalDoCliente = await _uof.ClienteRepository.GetAllNotasFiscaisAsync();
 
@@ -64,14 +64,14 @@ namespace ApiDeNotaFiscal.Controllers
                 return NotFound("Cliente não tem nota fiscal em seu nome");
             }
 
-            var clienteNotaFiscalDto = _mapper.Map<ClienteResponseNotaFiscalDTO>(notasFiscalDoCliente);
+            var clienteNotaFiscalDto = _mapper.Map<IEnumerable<ClienteResponseNotaFiscalDTO>>(notasFiscalDoCliente);
 
             return Ok(clienteNotaFiscalDto);
         }
 
         [HttpPost]
         //[ServiceFilter(typeof(ApiLoggingFilter))]
-        public async Task<ActionResult<ClienteDTO>> PostCliente(ClienteCreateDto clienteCreateDto)
+        public async Task<ActionResult<ClienteResponseDTO>> PostCliente(ClienteCreateDto clienteCreateDto)
         {
             if (clienteCreateDto is null)
             {
@@ -84,14 +84,14 @@ namespace ApiDeNotaFiscal.Controllers
             var clienteCriado = _uof.ClienteRepository.Create(clienteCreate);
             await _uof.CommitAsync();
 
-            var novoClienteDto = _mapper.Map<ClienteDTO>(clienteCriado);
+            var novoClienteDto = _mapper.Map<ClienteResponseDTO>(clienteCriado);
 
             return new CreatedAtRouteResult("ObterCliente", new { id = novoClienteDto.ClienteId }, novoClienteDto);
         }
 
         [HttpPut("{id:int:min(1)}")]
         //[ServiceFilter(typeof(ApiLoggingFilter))]
-        public async Task<ActionResult<ClienteDTO>> PutCliente(int id, ClienteDTO clienteDto)
+        public async Task<ActionResult<ClienteResponseDTO>> PutCliente(int id, ClienteUpdateRequestDTO clienteDto)
         {
 
             var clienteId = await _uof.ClienteRepository.GetAsync(c => c.ClienteId == id);
@@ -107,7 +107,7 @@ namespace ApiDeNotaFiscal.Controllers
             var clienteAtualizado = _uof.ClienteRepository.Update(cliente);
             await _uof.CommitAsync();
 
-            var clienteAtulizadoDto = _mapper.Map<ClienteDTO>(clienteAtualizado);
+            var clienteAtulizadoDto = _mapper.Map<ClienteResponseDTO>(clienteAtualizado);
 
 
             return Ok(clienteAtulizadoDto);
@@ -115,7 +115,7 @@ namespace ApiDeNotaFiscal.Controllers
 
         [HttpDelete("{id:int:min(1)}")]
         //[ServiceFilter(typeof(ApiLoggingFilter))]
-        public async Task<ActionResult<ClienteDTO>> DeleteCliente(int id)
+        public async Task<ActionResult<ClienteResponseDTO>> DeleteCliente(int id)
         {
 
             var cliente = await _uof.ClienteRepository.GetAsync(c => c.ClienteId == id);
@@ -129,7 +129,7 @@ namespace ApiDeNotaFiscal.Controllers
 
             await _uof.CommitAsync();
 
-            var clienteDeletadoDto = _mapper.Map<ClienteDTO>(clienteDeletado);
+            var clienteDeletadoDto = _mapper.Map<ClienteResponseDTO>(clienteDeletado);
 
             return Ok(clienteDeletadoDto);
         }

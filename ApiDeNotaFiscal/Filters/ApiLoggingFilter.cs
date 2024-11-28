@@ -22,7 +22,7 @@ namespace ApiDeNotaFiscal.Filters
 
            var resultContext = await next();
 
-            if (resultContext is null)
+            if (resultContext.Exception != null && !resultContext.ExceptionHandled)
             {
                 _logger.LogError(resultContext.Exception, "Error durante a execução da action");
             }
