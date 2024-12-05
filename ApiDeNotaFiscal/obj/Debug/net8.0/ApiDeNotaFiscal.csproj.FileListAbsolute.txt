@@ -8,6 +8,7 @@ D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\AutoMapper.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Humanizer.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.Build.dll
@@ -48,6 +49,7 @@ D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Mono.TextTemplating.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\MySqlConnector.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\NuGet.Common.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\NuGet.Configuration.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
@@ -239,5 +241,3 @@ D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\obj\Debug\net8.0\ApiDeNotaFiscal.pdb
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\obj\Debug\net8.0\ApiDeNotaFiscal.genruntimeconfig.cache
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\obj\Debug\net8.0\ref\ApiDeNotaFiscal.dll
-D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
-D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll

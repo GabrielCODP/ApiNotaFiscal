@@ -2,11 +2,13 @@
 using ApiDeNotaFiscal.DTOs.EmpresaDTO;
 using ApiDeNotaFiscal.Filters;
 using ApiDeNotaFiscal.Models;
+using ApiDeNotaFiscal.Pagination;
 using ApiDeNotaFiscal.Repositories.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace ApiDeNotaFiscal.Controllers
 {
@@ -53,6 +55,28 @@ namespace ApiDeNotaFiscal.Controllers
             var empresaDto = _mapper.Map<EmpresaResponseDTO>(empresa);
 
             return Ok(empresaDto);
+        }
+
+        [HttpGet("pagination")]
+        public async Task<ActionResult<EmpresaResponseDTO>> GetEmpresaPagination([FromQuery] EmpresasParameters empresasParameters)
+        {
+            var empresas = await _uof.EmpresaRepository.GetEmpresasPaginacao(empresasParameters);
+
+            var metadata = new
+            {
+                empresas.TotalCount,
+                empresas.PageSize,
+                empresas.CurrentPage,
+                empresas.TotalPages,
+                empresas.HasNext,
+                empresas.HasPrevious
+            };
+
+            Response.Headers.Append("X-Pagination", JsonConvert.SerializeObject(metadata));
+
+            var empresasDTO = _mapper.Map<IEnumerable<EmpresaResponseDTO>>(empresas);
+
+            return Ok(empresasDTO);
         }
 
 

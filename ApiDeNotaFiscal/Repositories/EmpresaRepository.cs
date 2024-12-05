@@ -1,7 +1,9 @@
 ﻿using ApiDeNotaFiscal.Context;
 using ApiDeNotaFiscal.Models;
+using ApiDeNotaFiscal.Pagination;
 using ApiDeNotaFiscal.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.InteropServices;
 
 namespace ApiDeNotaFiscal.Repositories
 {
@@ -13,7 +15,16 @@ namespace ApiDeNotaFiscal.Repositories
 
         public async Task<IEnumerable<Empresa>> GetAllNotasFiscaisDaEmpresa()
         {
+         
             return await _context.Set<Empresa>().AsNoTracking().Include(n => n.NotasFiscais).ToListAsync();
+        }
+
+        public async Task<PagedList<Empresa>> GetEmpresasPaginacao(EmpresasParameters empresasParameters)
+        {
+            var empresas = _context.Set<Empresa>().OrderBy(e => e.EmpresaId).AsQueryable();
+            var empresasOrdenadas = PagedList<Empresa>.TOPagedList(empresas, empresasParameters.PageNumber, empresasParameters.PageSize); 
+
+            return empresasOrdenadas;
         }
     }
 }
