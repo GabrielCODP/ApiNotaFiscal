@@ -21,8 +21,8 @@ namespace ApiDeNotaFiscal.Repositories
 
         public async Task<PagedList<Empresa>> GetEmpresasPaginacao(EmpresasParameters empresasParameters)
         {
-            var empresas = _context.Set<Empresa>().OrderBy(e => e.EmpresaId).AsQueryable();
-            var empresasOrdenadas = PagedList<Empresa>.TOPagedList(empresas, empresasParameters.PageNumber, empresasParameters.PageSize); 
+            var empresas = await _context.Set<Empresa>().OrderBy(e => e.EmpresaId).ToListAsync();
+            var empresasOrdenadas = PagedList<Empresa>.TOPagedList(empresas.AsQueryable(), empresasParameters.PageNumber, empresasParameters.PageSize); 
 
             return empresasOrdenadas;
         }

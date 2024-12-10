@@ -7,6 +7,10 @@ D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\ApiDeNotaFiscal.pdb
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\AutoMapper.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Humanizer.dll
+D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
@@ -33,9 +37,17 @@ D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.OpenApi.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
@@ -72,6 +84,7 @@ D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\System.Drawing.Common.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\System.Formats.Asn1.dll
+D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 D:\Documentos\Codigos_programas\DesafiosTreinos\ApiDeNotaFiscal\ApiDeNotaFiscal\bin\Debug\net8.0\System.Security.Permissions.dll

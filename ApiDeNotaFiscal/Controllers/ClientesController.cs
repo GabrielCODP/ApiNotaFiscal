@@ -4,6 +4,7 @@ using ApiDeNotaFiscal.Filters;
 using ApiDeNotaFiscal.Repositories.Interfaces;
 using AutoMapper;
 using ApiDeNotaFiscal.DTOs.ClienteDTOs;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ApiDeNotaFiscal.Controllers
 {
@@ -22,6 +23,7 @@ namespace ApiDeNotaFiscal.Controllers
 
         [HttpGet]
         [ServiceFilter(typeof(ApiLoggingFilter))]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<ClienteResponseDTO>>> GetClientes()
         {
             var clientes = await _uof.ClienteRepository.GetAllAsync();
