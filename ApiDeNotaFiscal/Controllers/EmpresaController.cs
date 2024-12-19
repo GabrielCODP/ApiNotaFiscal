@@ -5,6 +5,7 @@ using ApiDeNotaFiscal.Models;
 using ApiDeNotaFiscal.Pagination;
 using ApiDeNotaFiscal.Repositories.Interfaces;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,7 @@ namespace ApiDeNotaFiscal.Controllers
             _mapper = mapper;
         }
 
+        [Authorize]
         [HttpGet]
         [ServiceFilter(typeof(ApiLoggingFilter))]
         public async Task<ActionResult<IEnumerable<EmpresaResponseDTO>>> GetEmpresas()
