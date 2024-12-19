@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|d:\\documentos\\codigos_programas\\desafiostreinos\\apidenotafiscal\\apidenotafiscal\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|solutionrelative:apidenotafiscal\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|d:\\documentos\\codigos_programas\\desafiostreinos\\apidenotafiscal\\apidenotafiscal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|solutionrelative:apidenotafiscal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|d:\\documentos\\codigos_programas\\desafiostreinos\\apidenotafiscal\\apidenotafiscal\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|solutionrelative:apidenotafiscal\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|d:\\documentos\\codigos_programas\\desafiostreinos\\apidenotafiscal\\apidenotafiscal\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|solutionrelative:apidenotafiscal\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ADFFD2FE-A596-4143-927A-D240C72DD73B}|ApiDeNotaFiscal\\ApiDeNotaFiscal.csproj|d:\\documentos\\codigos_programas\\desafiostreinos\\apidenotafiscal\\apidenotafiscal\\controllers\\empresacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,19 +39,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\appsettings.json",
+              "RelativeDocumentMoniker": "ApiDeNotaFiscal\\appsettings.json",
+              "ToolTip": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\appsettings.json",
+              "RelativeToolTip": "ApiDeNotaFiscal\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAABaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-19T01:20:34.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "TokenService.cs",
               "DocumentMoniker": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\Services\\TokenService.cs",
               "RelativeDocumentMoniker": "ApiDeNotaFiscal\\Services\\TokenService.cs",
               "ToolTip": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\Services\\TokenService.cs",
               "RelativeToolTip": "ApiDeNotaFiscal\\Services\\TokenService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAVAAAA",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAowEEAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-19T00:45:37.277Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "EmpresaController.cs",
               "DocumentMoniker": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\Controllers\\EmpresaController.cs",
               "RelativeDocumentMoniker": "ApiDeNotaFiscal\\Controllers\\EmpresaController.cs",
@@ -60,7 +77,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ClientesController.cs",
               "DocumentMoniker": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\Controllers\\ClientesController.cs",
               "RelativeDocumentMoniker": "ApiDeNotaFiscal\\Controllers\\ClientesController.cs",
@@ -79,14 +96,14 @@
               "RelativeDocumentMoniker": "ApiDeNotaFiscal\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\Controllers\\AuthController.cs",
               "RelativeToolTip": "ApiDeNotaFiscal\\Controllers\\AuthController.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAWwCcAAAAAAAAA",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAswKkAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-17T00:35:49.857Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Documentos\\Codigos_programas\\DesafiosTreinos\\ApiDeNotaFiscal\\ApiDeNotaFiscal\\Program.cs",
               "RelativeDocumentMoniker": "ApiDeNotaFiscal\\Program.cs",
@@ -94,8 +111,7 @@
               "RelativeToolTip": "ApiDeNotaFiscal\\Program.cs",
               "ViewState": "AQIAABgAAAAAAAAAAAAiwCQAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T00:28:57.871Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T00:28:57.871Z"
             }
           ]
         }

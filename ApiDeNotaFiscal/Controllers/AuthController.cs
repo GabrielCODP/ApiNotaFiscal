@@ -132,7 +132,7 @@ namespace ApiDeNotaFiscal.Controllers
 
             var user = await _userManager.FindByNameAsync(userName!);
 
-            if (user == null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.Now)
+            if (user == null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime >= DateTime.Now)
             {
                 return BadRequest("Invalid access token/refresh token");
             }
