@@ -96,6 +96,18 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
+
+    options.AddPolicy("SuperAdminOnly", policy =>
+                        policy.RequireRole("Admin").RequireClaim("id", "Naruto"));
+
+    options.AddPolicy("UserOnly", policy => policy.RequireRole("User"));
+});
+
 builder.Services.AddScoped<ApiLoggingFilter>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IEmpresaRepository, EmpresaRepository>();

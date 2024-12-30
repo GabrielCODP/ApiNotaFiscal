@@ -23,8 +23,5 @@ namespace ApiDeNotaFiscal.Logging
             loggers.Clear();
         }
 
-
-
-
     }
 }

@@ -23,7 +23,7 @@ namespace ApiDeNotaFiscal.Controllers
 
         [HttpGet]
         [ServiceFilter(typeof(ApiLoggingFilter))]
-        [Authorize]
+        [Authorize(Policy = "AdminOnly" )]
         public async Task<ActionResult<IEnumerable<ClienteResponseDTO>>> GetClientes()
         {
             var clientes = await _uof.ClienteRepository.GetAllAsync();
@@ -41,6 +41,7 @@ namespace ApiDeNotaFiscal.Controllers
 
         [HttpGet("{id:int}", Name = "ObterCliente")]
         [ServiceFilter(typeof(ApiLoggingFilter))]
+        [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<ClienteResponseDTO>> GetCliente(int id)
         {
             var cliente = await _uof.ClienteRepository.GetAsync(c => c.ClienteId == id);
